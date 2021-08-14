@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&family=VT323&display=swap');
 body{
   margin:0;
   padding:0;
+  font-family: 'VT323', monospace;
 }
+button{
+  font-family: 'VT323', monospace;
+  font-size: 50px;
+}
+
 .whole{
   width: 100vw;
   height: 100vh;
@@ -9,6 +16,7 @@ body{
   justify-content: center;
   align-items:center;
   background-color: #000;
+  transition: background-color 0.8s ease-in-out;
 }
 .calculator{
   display: flex;
@@ -16,8 +24,7 @@ body{
   align-items: center;
   flex-wrap: wrap;
   width:20%;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 3px solid #ccc;
 }
 .calculator .number-section{
   display: flex;
@@ -40,26 +47,38 @@ body{
   box-sizing: border-box;
   height:3vw;
   min-height: 25px;
-  box-shadow: inset 2px 2px 5px #ccc;
+  border: 3px solid #fff;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   background-color: #000;
   color:#fff;
+  font-size: 55px;
 }
 .calculator button.num-butt{
   background-color: #000;
   outline: none;
-  border: 1px solid #ccc;
-  padding:9% 4%;
+  border: 3px solid #ccc;
+  padding:5% 4%;
   flex: 0 0 33.33%;
   color:#fff;
+  transition: all 0.1s ease-in-out;
 }
 .calculator button.op-butt{
   background-color: #000;
   outline: none;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   align-self: stretch;
   flex: 0 0 100%;
   color:#fff;
+  transition: all 0.1s ease-in-out;
+}
+.calculator button.num-butt:active , .calculator button.op-butt:active{
+  background-color: white;
+  color: #000;
+  transition: all 0.1s ease-in-out;
+}
+.calculator button.num-butt.ON, .calculator button.op-butt.ON{
+  border: 3px inset #00F;
+  box-shadow: inset 0px 5px 35px #00f
 }

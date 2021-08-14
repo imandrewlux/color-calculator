@@ -29,6 +29,10 @@ const Calculator = props => {
 	}
 
 	const numberButtonFunction = (event, item) => {
+		let allButtons = document.querySelectorAll('button');
+		allButtons.forEach( element => element.classList.remove("ON") );
+		event.target.classList.add("ON");
+
 		if(item === "c"){
 			setCurrentNumber('');
 			setValue([]);
@@ -37,6 +41,7 @@ const Calculator = props => {
 			setEqDisplay(false);
 			setHexSting('');
 			setDecPress(false);
+			hexFunct();
 		}else if(item === "."){
 			if(!decPress){
 				setCurrentNumber(currentNumber+item);
@@ -45,7 +50,7 @@ const Calculator = props => {
 				return null;
 			}
 		}
-		if(currentNumber.length <= 12 && item != "c"){
+		if(currentNumber.length <= 12 && item !== "c"){
 			setCurrentNumber(currentNumber+item);
 			hexFunct();
 		}else{
@@ -108,27 +113,43 @@ const Calculator = props => {
 	const eqFunction = (event) => {
 			if(operator[0] === "+"){
 				let sum = value.reduce((a, b) => a + b);
-				if(sum.toString().length <= 12){
+				if(sum.toString().length <= 12 && sum < 999999999999){
 					setValue([sum]);
-				}else{setValue(["Overflow"])};
+				}else if(sum.toString().length >= 12 && sum < 999999999999)
+					{setValue([Math.round(sum * 10000000000) / 10000000000])
+				}else if(sum.toString().length >= 12 && sum > 999999999999){
+					setValue(["Overflow"]);
+				}
 				operator.shift();
 			} else if(operator[0] === "-"){
 				let sum = value.reduce((a, b) => a - b);
-				if(sum.toString().length <= 12){
+				if(sum.toString().length <= 12 && sum < 999999999999){
 					setValue([sum]);
-				}else{setValue(["Overflow"])};
+				}else if(sum.toString().length >= 12 && sum < 999999999999)
+				{setValue([Math.round(sum * 10000000000) / 10000000000])
+				}else if(sum.toString().length >= 12 && sum > 999999999999){
+					setValue(["Overflow"]);
+				}
 				operator.shift();
 			} else if(operator[0] === "x"){
 				let sum = value.reduce((a, b) => a * b);
-				if(sum.toString().length <= 12){
+				if(sum.toString().length <= 12 && sum < 999999999999){
 					setValue([sum]);
-				}else{setValue(["Overflow"])};
+				}else if(sum.toString().length >= 12 && sum < 999999999999)
+				{setValue([Math.round(sum * 10000000000) / 10000000000])
+				}else if(sum.toString().length >= 12 && sum > 999999999999){
+					setValue(["Overflow"]);
+				}
 				operator.shift();
 			} else if(operator[0] === "/"){
 				let sum = value.reduce((a, b) => a / b);
-				if(sum.toString().length <= 12){
+				if(sum.toString().length <= 12 && sum < 999999999999){
 					setValue([sum]);
-				}else{setValue(["Overflow"])};
+				}else if(sum.toString().length >= 12 && sum < 999999999999)
+				{setValue([Math.round(sum * 10000000000) / 10000000000])
+				}else if(sum.toString().length >= 12 && sum > 999999999999){
+					setValue(["Overflow"]);
+				}
 				operator.shift();
 			}else if(operator[0] === "="){
 				operator.shift();
