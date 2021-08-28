@@ -13,10 +13,26 @@ button{
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items:center;
   background-color: #000;
   transition: background-color 0.8s ease-in-out;
+}
+.hex{
+  color: #fff;
+  font-size: 55px;
+  padding: 10px 0;
+  /*mix-blend-mode: difference;*/
+  position: relative;
+  z-index: 5;
+  width: calc(20% + 6px);
+  text-align: center;
+  background-color: #000;
+  border: 6px solid #fff;
+  /*border-bottom: 0px;*/
+  box-sizing: border-box;
+  margin-bottom: 30px;
 }
 .calculator{
   display: flex;
@@ -24,7 +40,9 @@ button{
   align-items: center;
   flex-wrap: wrap;
   width:20%;
-  border: 3px solid #ccc;
+  border: 3px solid #fff;
+  position: relative;
+  z-index: 6;
 }
 .calculator .number-section{
   display: flex;
@@ -43,7 +61,7 @@ button{
 }
 .calculator .display{
   width:100%;
-  padding:2% 4%;
+  padding:9% 4%;
   box-sizing: border-box;
   height:3vw;
   min-height: 25px;
@@ -58,7 +76,7 @@ button{
 .calculator button.num-butt{
   background-color: #000;
   outline: none;
-  border: 3px solid #ccc;
+  border: 3px solid #fff;
   padding:5% 4%;
   flex: 0 0 33.33%;
   color:#fff;
@@ -67,7 +85,7 @@ button{
 .calculator button.op-butt{
   background-color: #000;
   outline: none;
-  border: 3px solid #ccc;
+  border: 3px solid #fff;
   align-self: stretch;
   flex: 0 0 100%;
   color:#fff;
@@ -81,4 +99,38 @@ button{
 .calculator button.num-butt.ON, .calculator button.op-butt.ON{
   border: 3px inset #00F;
   box-shadow: inset 0px 5px 35px #00f
+}
+
+.bg-text{
+  position: fixed;
+    top: -50vh;
+    left: -50vw;
+    width: 200vw;
+    height: 200vh;
+    font-size: 70px;
+    z-index: 2;
+    transform: rotate(-20deg);
+    color: #fff;
+    mix-blend-mode: difference;
+    line-break: anywhere;
+    white-space: break-spaces;
+    animation: myanim 7s linear infinite;
+}
+
+@keyframes myanim {
+            100% {
+               text-indent: 98%;
+            }
+         }
+
+@media screen and (max-width: 1088px){
+  .calculator, .hex{
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 543px){
+  .calculator, .hex{
+    width: 80%;
+  }
 }
