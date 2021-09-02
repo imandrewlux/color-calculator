@@ -78,6 +78,7 @@ button{
   outline: none;
   border: 3px solid #fff;
   padding:5% 4%;
+  margin: 0;
   flex: 0 0 33.33%;
   color:#fff;
   transition: all 0.1s ease-in-out;
@@ -86,6 +87,8 @@ button{
   background-color: #000;
   outline: none;
   border: 3px solid #fff;
+  margin: 0;
+  padding: 0;
   align-self: stretch;
   flex: 0 0 100%;
   color:#fff;
